@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "prompt": "帮我创建一个小猫掌机 ESP32 ROM 项目，开机显示 LVGL 菜单，用方向键移动，A 键确认，并且按 Reset 后回到 Loader。",
+    "expected": "生成 Loader 兼容的 ESP-IDF 项目结构，使用 ST7735 160x128、6 键输入、return_to_loader_setup()、正确分区表，并给出 build/flash 验证步骤。"
+  },
+  {
+    "id": 2,
+    "prompt": "我的 ROM 屏幕黑屏但能刷机成功，帮我排查。",
+    "expected": "优先检查 ST7735 初始化、DISPON 延时、GPIO5/GPIO4、SPI2 初始化顺序、MADCTL 与 RGB565_SWAPPED，并区分硬件接线和软件配置。"
+  },
+  {
+    "id": 3,
+    "prompt": "我想在小猫掌机上做一个带音乐和陀螺仪控制的小游戏，还要从 TF 卡读取关卡文件。",
+    "expected": "使用 GPIO14 LEDC 蜂鸣器、I2C MPU6050、SDSPI MicroSD on SPI2/CS22，说明 SPI 共享和非阻塞 UI 限制，避免超出 ota_0。"
+  }
+]
