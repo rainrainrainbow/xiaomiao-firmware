@@ -13,20 +13,16 @@ jobs:
     container:
       image: espressif/idf:v5.5.4
     
-    defaults:
-      run:
-        working-directory: test-rom
-    
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       
     - name: Build firmware
+      working-directory: ${{ github.workspace }}/test-rom
       run: |
+        pwd
+        ls -la
         idf.py build
-        
-    - name: Generate merged binary
-      run: |
         idf.py merge-bin
         
     - name: Upload firmware artifact
