@@ -28,7 +28,7 @@ jobs:
           name: test-rom-firmware
           path: |
             test-rom/build/test_rom.bin
-            test-rom/build/test_rom-merged.bin
+            test-rom/build/merged-binary.bin
           retention-days: 30
 
       - name: Create Release
@@ -37,7 +37,7 @@ jobs:
         with:
           files: |
             test-rom/build/test_rom.bin
-            test-rom/build/test_rom-merged.bin
+            test-rom/build/merged-binary.bin
           token: ${{ secrets.GITHUB_TOKEN }}
           tag_name: test-rom-${{ github.run_number }}
           name: Test ROM Build #${{ github.run_number }}
@@ -52,7 +52,7 @@ jobs:
 
             ### Files:
             - test_rom.bin - Standard firmware
-            - test_rom-merged.bin - Merged binary for SD card
+            - merged-binary.bin - Merged binary for SD card
 
             Built from commit: ${{ github.sha }}
         env:
